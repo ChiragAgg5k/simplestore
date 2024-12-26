@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pint" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/utopia-php/di" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/utopia-php/http" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/utopia-php/servers" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jean85/pretty-package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mongodb/mongodb" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/utopia-php/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/utopia-php/database" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/utopia-php/framework" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
