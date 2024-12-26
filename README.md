@@ -3,5 +3,6 @@
 Required extensions:
 
 ```bash
-pecl install swoole xdebug redis mongodb
+pecl install swoole xdebug
+composer install
 ```
