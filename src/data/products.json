@@ -16,7 +16,7 @@
       "id": "2",
       "name": "Patagonia Better Sweater Fleece Jacket",
       "description": "Warm, comfortable recycled polyester fleece jacket",
-      "price": 139.00,
+      "price": 139,
       "currency": "USD",
       "category": "Apparel",
       "brand": "Patagonia",
@@ -76,7 +76,7 @@
       "id": "7",
       "name": "Apple iPad Air (5th Generation)",
       "description": "10.9-inch iPad with M1 chip and True Tone display",
-      "price": 599.00,
+      "price": 599,
       "currency": "USD",
       "category": "Electronics",
       "brand": "Apple",
@@ -88,7 +88,7 @@
       "id": "8",
       "name": "Yeti Tundra 45 Cooler",
       "description": "Premium rotomolded cooler with superior ice retention",
-      "price": 325.00,
+      "price": 325,
       "currency": "USD",
       "category": "Outdoor",
       "brand": "Yeti",
@@ -100,7 +100,7 @@
       "id": "9",
       "name": "Theragun PRO Percussion Massage Device",
       "description": "Professional-grade deep muscle treatment device",
-      "price": 599.00,
+      "price": 599,
       "currency": "USD",
       "category": "Health & Wellness",
       "brand": "Therabody",
@@ -119,6 +119,18 @@
       "sku": "PH-HUE-SK-4B",
       "stock": 35,
       "rating": 4.7
+    },
+    {
+      "name": "Weber Genesis E-325s Gas Grill",
+      "description": "Premium 3-burner gas grill with sear station and side burner",
+      "price": 1029,
+      "currency": "USD",
+      "category": "Outdoor",
+      "brand": "Weber",
+      "sku": "WBR-GEN-325S",
+      "stock": 8,
+      "rating": 4.8,
+      "id": "11"
     }
   ]
 }
