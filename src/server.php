@@ -210,6 +210,48 @@ try {
             }
         );
 
+    Http::put('/products/:id')
+        ->desc('Update product with given ID')
+        ->param('id', 'string', new Text(256), 'Product ID to update, max length 256.')
+        ->inject('request')
+        ->inject('response')
+        ->action(function ($id, Request $request, Response $response) use (&$products) {
+            $updatedProduct = $request->getPayload('product');
+
+            $requiredFields = ['name', 'price', 'currency'];
+            foreach ($requiredFields as $field) {
+                if (! isset($updatedProduct[$field])) {
+                    $response->json([
+                        'status' => 'error',
+                        'code' => 400,
+                        'message' => "Missing required field: $field",
+                    ]);
+                }
+            }
+
+            foreach ($products as $index => $product) {
+                if ($product['id'] === $id) {
+                    $products[$index] = $updatedProduct;
+                    break;
+                }
+            }
+
+            try {
+                saveProducts($products);
+                $response->json([
+                    'status' => 'success',
+                    'code' => 200,
+                    'message' => 'Product updated',
+                ]);
+            } catch (Exception $e) {
+                $response->json([
+                    'status' => 'error',
+                    'code' => 500,
+                    'message' => 'Failed to save products: '.$e->getMessage(),
+                ]);
+            }
+        });
+
 } catch (Exception $e) {
     echo 'Error: '.$e->getMessage()."\n";
     exit(1);
