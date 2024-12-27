@@ -7,6 +7,7 @@ use Utopia\Http\Adapter\Swoole\Server;
 use Utopia\Http\Http;
 use Utopia\Http\Request;
 use Utopia\Http\Response;
+use Utopia\Http\Validator\Text;
 
 /**
  * @throws Exception
@@ -38,11 +39,41 @@ function loadProducts(): array
 function saveProducts(array $products): void
 {
     $jsonFile = __DIR__.'/data/products.json';
-    $jsonContent = json_encode(['products' => $products], JSON_PRETTY_PRINT);
+
+    $orderedProducts = array_map(function ($product) {
+        $fieldOrder = [
+            'id',
+            'name',
+            'description',
+            'price',
+            'currency',
+            'category',
+            'brand',
+            'sku',
+            'stock',
+            'rating',
+        ];
+        $orderedProduct = [];
+        foreach ($fieldOrder as $field) {
+            if (isset($product[$field])) {
+                $orderedProduct[$field] = $product[$field];
+            }
+        }
+
+        return $orderedProduct;
+    }, $products);
+
+    $data = [
+        'products' => array_values($orderedProducts),
+    ];
+
+    $jsonContent = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
     if ($jsonContent === false) {
         throw new Exception('Failed to encode products data');
     }
+
+    $jsonContent .= "\n";
 
     $result = file_put_contents($jsonFile, $jsonContent);
     if ($result === false) {
@@ -67,7 +98,7 @@ try {
             function (Response $response) {
                 $response->json(
                     [
-                        'status' => 'ok',
+                        'status' => 'success',
                         'code' => 200,
                         'message' => 'Server is running',
                     ]
@@ -80,7 +111,11 @@ try {
         ->inject('response')
         ->action(
             function (Response $response) use ($products) {
-                $response->json($products);
+                $response->json([
+                    'status' => 'success',
+                    'code' => 200,
+                    'data' => $products,
+                ]);
             }
         );
 
@@ -96,7 +131,9 @@ try {
                 foreach ($requiredFields as $field) {
                     if (! isset($newProduct[$field])) {
                         $response->json([
-                            'error' => "Missing required field: $field",
+                            'status' => 'error',
+                            'code' => 400,
+                            'message' => "Missing required field: $field",
                         ]);
 
                         return;
@@ -113,10 +150,61 @@ try {
 
                 try {
                     saveProducts($products);
-                    $response->json($products);
+                    $response->json([
+                        'status' => 'success',
+                        'code' => 200,
+                        'message' => 'Product created',
+                        'data' => $newProduct,
+                    ]);
                 } catch (Exception $e) {
                     $response->json([
-                        'error' => 'Failed to save product: '.$e->getMessage(),
+                        'status' => 'error',
+                        'code' => 500,
+                        'message' => 'Failed to save product: '.$e->getMessage(),
+                    ]);
+                }
+            }
+        );
+
+    Http::delete('/products/:id')
+        ->desc('Delete product with given ID')
+        ->param('id', 'string', new Text(256), 'Product ID to delete, max length 256.')
+        ->inject('request')
+        ->inject('response')
+        ->action(
+            function ($id, Request $request, Response $response) use (&$products) {
+                $found = false;
+
+                foreach ($products as $index => $product) {
+                    if ($product['id'] === $id) {
+                        unset($products[$index]);
+                        $found = true;
+                        break;
+                    }
+                }
+
+                if (! $found) {
+                    $response->json([
+                        'status' => 'error',
+                        'code' => 404,
+                        'message' => 'Product not found',
+                    ]);
+
+                    return;
+                }
+
+                try {
+                    saveProducts($products);
+                    $response->json([
+                        'status' => 'success',
+                        'code' => 200,
+                        'message' => 'Product deleted',
+                    ]);
+                } catch (Exception $e) {
+                    $response->json([
+                        'status' => 'error',
+                        'code' => 500,
+                        'message' => 'Failed to save products: '.$e->getMessage(),
                     ]);
                 }
             }

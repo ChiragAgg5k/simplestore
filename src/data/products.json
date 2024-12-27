@@ -119,18 +119,6 @@
       "sku": "PH-HUE-SK-4B",
       "stock": 35,
       "rating": 4.7
-    },
-    {
-      "name": "Weber Genesis E-325s Gas Grill",
-      "description": "Premium 3-burner gas grill with sear station and side burner",
-      "price": 1029,
-      "currency": "USD",
-      "category": "Outdoor",
-      "brand": "Weber",
-      "sku": "WBR-GEN-325S",
-      "stock": 8,
-      "rating": 4.8,
-      "id": "11"
     }
   ]
 }

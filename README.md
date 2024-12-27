@@ -7,7 +7,7 @@ Check out the postman documentation:
 [![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://documenter.getpostman.com/view/26816728/2sAYJ6BKkp)
 ## Getting Started
 
-### Prerequisites
+### Manual Installation
 
 1. PHP 8.0 or higher (8.3 recommended)
 Follow installation steps [here](https://www.php.net/manual/en/install.php).
@@ -20,13 +20,24 @@ Follow installation steps [here](https://www.php.net/manual/en/install.php).
     ```bash
     composer install
     ```
-   
-## Running the server
+5. Start the server
+    ```bash
+    php src/server.php
+    ```
 
-```bash
-php src/server.php
-```
+Server will start on port 80.
 
+### Docker Installation
+
+1. Install Docker: https://docs.docker.com/get-docker/
+2. Build the image
+    ```bash
+    docker compose build
+    ```
+3. Run the container
+    ```bash
+    docker compose up
+    ```
 Server will start on port 80.
 
 ## Example Requests
