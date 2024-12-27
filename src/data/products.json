@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Sony WH-1000XM4 Wireless Noise-Canceling Headphones",
+      "description": "Industry-leading noise canceling with Dual Noise Sensor technology",
+      "price": 349.99,
+      "currency": "USD",
+      "category": "Electronics",
+      "brand": "Sony",
+      "sku": "SNY-WH1000XM4-BLK",
+      "stock": 45,
+      "rating": 4.8
+    },
+    {
+      "id": "2",
+      "name": "Patagonia Better Sweater Fleece Jacket",
+      "description": "Warm, comfortable recycled polyester fleece jacket",
+      "price": 139.00,
+      "currency": "USD",
+      "category": "Apparel",
+      "brand": "Patagonia",
+      "sku": "PTG-25528-BLK-M",
+      "stock": 28,
+      "rating": 4.7
+    },
+    {
+      "id": "3",
+      "name": "Le Creuset Signature Enameled Cast-Iron Dutch Oven",
+      "description": "5.5-quart round French oven perfect for cooking, serving and storing",
+      "price": 369.95,
+      "currency": "USD",
+      "category": "Kitchen",
+      "brand": "Le Creuset",
+      "sku": "LC-21177-FRB-5QT",
+      "stock": 15,
+      "rating": 4.9
+    },
+    {
+      "id": "4",
+      "name": "Dyson V15 Detect Cordless Vacuum",
+      "description": "Intelligent cordless vacuum with laser dust detection",
+      "price": 749.99,
+      "currency": "USD",
+      "category": "Home Appliances",
+      "brand": "Dyson",
+      "sku": "DYS-V15-DET-CRD",
+      "stock": 12,
+      "rating": 4.6
+    },
+    {
+      "id": "5",
+      "name": "Nintendo Switch OLED Model",
+      "description": "Gaming console with 7-inch OLED screen and enhanced audio",
+      "price": 349.99,
+      "currency": "USD",
+      "category": "Gaming",
+      "brand": "Nintendo",
+      "sku": "NIN-OLED-WHT-V2",
+      "stock": 30,
+      "rating": 4.8
+    },
+    {
+      "id": "6",
+      "name": "Vitamix Professional Series 750 Blender",
+      "description": "Professional-grade blender with 5 pre-programmed settings",
+      "price": 599.95,
+      "currency": "USD",
+      "category": "Kitchen",
+      "brand": "Vitamix",
+      "sku": "VTX-750-PRO-BLK",
+      "stock": 18,
+      "rating": 4.9
+    },
+    {
+      "id": "7",
+      "name": "Apple iPad Air (5th Generation)",
+      "description": "10.9-inch iPad with M1 chip and True Tone display",
+      "price": 599.00,
+      "currency": "USD",
+      "category": "Electronics",
+      "brand": "Apple",
+      "sku": "APL-IPAD-AIR-5-64",
+      "stock": 50,
+      "rating": 4.8
+    },
+    {
+      "id": "8",
+      "name": "Yeti Tundra 45 Cooler",
+      "description": "Premium rotomolded cooler with superior ice retention",
+      "price": 325.00,
+      "currency": "USD",
+      "category": "Outdoor",
+      "brand": "Yeti",
+      "sku": "YT-TUN45-WHT",
+      "stock": 22,
+      "rating": 4.7
+    },
+    {
+      "id": "9",
+      "name": "Theragun PRO Percussion Massage Device",
+      "description": "Professional-grade deep muscle treatment device",
+      "price": 599.00,
+      "currency": "USD",
+      "category": "Health & Wellness",
+      "brand": "Therabody",
+      "sku": "THB-PRO-4TH-BLK",
+      "stock": 25,
+      "rating": 4.6
+    },
+    {
+      "id": "10",
+      "name": "Philips Hue White and Color Ambiance Starter Kit",
+      "description": "Smart lighting system with bridge and 4 color bulbs",
+      "price": 199.99,
+      "currency": "USD",
+      "category": "Smart Home",
+      "brand": "Philips",
+      "sku": "PH-HUE-SK-4B",
+      "stock": 35,
+      "rating": 4.7
+    }
+  ]
+}
